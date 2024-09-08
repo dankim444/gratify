@@ -23,6 +23,8 @@
 		AA7569312C8E068B00325D4B /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7569302C8E068B00325D4B /* Secrets.swift */; };
 		AA7569332C8E06B100325D4B /* RequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7569322C8E06B100325D4B /* RequestModels.swift */; };
 		AA7569352C8E06CF00325D4B /* ResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7569342C8E06CF00325D4B /* ResponseModels.swift */; };
+		AA7569372C8E07C900325D4B /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7569362C8E07C900325D4B /* MonthlyView.swift */; };
+		AA7569392C8E07D900325D4B /* YearlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7569382C8E07D900325D4B /* YearlyView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		AA7569302C8E068B00325D4B /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		AA7569322C8E06B100325D4B /* RequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModels.swift; sourceTree = "<group>"; };
 		AA7569342C8E06CF00325D4B /* ResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModels.swift; sourceTree = "<group>"; };
+		AA7569362C8E07C900325D4B /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
+		AA7569382C8E07D900325D4B /* YearlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearlyView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,8 @@
 				AA7569182C8E003100325D4B /* HomeView.swift */,
 				AA7569202C8E01DF00325D4B /* RatingView1.swift */,
 				AA75692A2C8E030D00325D4B /* EntriesView.swift */,
+				AA7569362C8E07C900325D4B /* MonthlyView.swift */,
+				AA7569382C8E07D900325D4B /* YearlyView.swift */,
 				AA7569222C8E023800325D4B /* RatingView2.swift */,
 				AA7569242C8E026400325D4B /* TutorialView.swift */,
 				AA7569262C8E028E00325D4B /* SettingsView.swift */,
@@ -301,8 +307,10 @@
 				AA7569352C8E06CF00325D4B /* ResponseModels.swift in Sources */,
 				AA75692F2C8E067500325D4B /* NetworkManager.swift in Sources */,
 				AA7568F02C8DFFA000325D4B /* ContentView.swift in Sources */,
+				AA7569372C8E07C900325D4B /* MonthlyView.swift in Sources */,
 				AA7569252C8E026400325D4B /* TutorialView.swift in Sources */,
 				AA7569192C8E003100325D4B /* HomeView.swift in Sources */,
+				AA7569392C8E07D900325D4B /* YearlyView.swift in Sources */,
 				AA75691C2C8E00B500325D4B /* ViewModel.swift in Sources */,
 				AA7568EE2C8DFFA000325D4B /* gratifyApp.swift in Sources */,
 				AA75692B2C8E030D00325D4B /* EntriesView.swift in Sources */,

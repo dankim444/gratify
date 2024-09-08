@@ -39,6 +39,10 @@ struct HomeView: View {
                     RatingView2(dailyEntry: $viewModel.dailyEntry, navigationPath: $navigationPath, viewModel: viewModel)
                 case "entries":
                     EntriesView(navigationPath: $navigationPath, viewModel: viewModel)
+                case "monthly":
+                    MonthlyView(navigationPath: $navigationPath, viewModel: viewModel)
+                case "yearly":
+                    YearlyView(navigationPath: $navigationPath, viewModel: viewModel)
                 case "settings":
                     SettingsView(navigationPath: $navigationPath)
                 case "tutorial":
