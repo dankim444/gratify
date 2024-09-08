@@ -17,14 +17,12 @@ struct HomeView: View {
         NavigationStack(path: $navigationPath) {
             
             VStack(spacing: 20) {
-                
                 Text("GRATIFY")
                     .font(Font.custom("Futura-Medium", size: 60))
                 
                 GradientCircleButton(navigationPath: $navigationPath, destination: "monthly", inputValue: 3, emojiValue: 1)
                 Spacer()
 
-                
                 RainbowButton(title: "Rate Your Day", destination: "rate", navigationPath: $navigationPath, viewModel: viewModel)
                 
                 RainbowButton(title: "View All Entries", destination: "entries", navigationPath: $navigationPath, viewModel: viewModel)
@@ -32,7 +30,22 @@ struct HomeView: View {
                 RainbowButton(title: "Go to Settings", destination: "settings", navigationPath: $navigationPath, viewModel: viewModel)
                 
                 RainbowButton(title: "Go to Tutorial", destination: "tutorial", navigationPath: $navigationPath, viewModel: viewModel)
-                
+            }
+            .navigationDestination(for: String.self) { route in
+                switch route {
+                case "rate":
+                    RatingView1(navigationPath: $navigationPath, viewModel: viewModel)
+                case "details":
+                    RatingView2(dailyEntry: $viewModel.dailyEntry, navigationPath: $navigationPath, viewModel: viewModel)
+                case "entries":
+                    EntriesView(navigationPath: $navigationPath, viewModel: viewModel)
+                case "settings":
+                    SettingsView(navigationPath: $navigationPath)
+                case "tutorial":
+                    TutorialView(navigationPath: $navigationPath)
+                default:
+                    EmptyView()
+                }
             }
         }
     }
