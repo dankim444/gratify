@@ -50,10 +50,10 @@ and what we feel from our daily experiences. We want to encourage users to stop,
   - AppDelegate: Handles app-level events and configurations for notifications
 
 ## Screenshots
-![Simulator Screenshot - iPhone 15 Pro - 2024-09-08 at 13 54 44](https://github.com/user-attachments/assets/a7b0c93d-221c-4ffb-9bbd-f75905450905)
-![Simulator Screenshot - iPhone 15 Pro - 2024-09-08 at 13 55 06](https://github.com/user-attachments/assets/4ab2d86b-8492-4c6a-a33b-231924478789)
-![Simulator Screenshot - iPhone 15 Pro - 2024-09-08 at 13 56 37](https://github.com/user-attachments/assets/06608ac9-848a-493b-a83b-4c4997427ebc)
-![Simulator Screenshot - iPhone 15 Pro - 2024-09-08 at 13 56 49](https://github.com/user-attachments/assets/2f41b38b-a811-4f8d-b079-e8830b564c79)
+<img src="https://github.com/user-attachments/assets/a7b0c93d-221c-4ffb-9bbd-f75905450905" alt="Simulator Screenshot - iPhone 15 Pro - 2024-09-08 at 13 54 44" width="300"/>
+<img src="https://github.com/user-attachments/assets/4ab2d86b-8492-4c6a-a33b-231924478789" alt="Simulator Screenshot - iPhone 15 Pro - 2024-09-08 at 13 55 06" width="300"/>
+<img src="https://github.com/user-attachments/assets/06608ac9-848a-493b-a83b-4c4997427ebc" alt="Simulator Screenshot - iPhone 15 Pro - 2024-09-08 at 13 56 37" width="300"/>
+<img src="https://github.com/user-attachments/assets/2f41b38b-a811-4f8d-b079-e8830b564c79" alt="Simulator Screenshot - iPhone 15 Pro - 2024-09-08 at 13 56 49" width="300"/>
 
 
 
