@@ -31,7 +31,7 @@ struct GPTFunctionCall: Decodable {
 struct SummaryResponse: Decodable {
     let overallMood: Int
     let overallRating: Int
-    let top5MindfulStuff: String
+    let top5MindfulStuff: [String]
     let homePageNumber: Int
     let recap: String
     
@@ -43,3 +43,4 @@ struct SummaryResponse: Decodable {
         case recap = "recap"
     }
 }
+

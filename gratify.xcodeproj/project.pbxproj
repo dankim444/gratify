@@ -25,6 +25,11 @@
 		AA7569352C8E06CF00325D4B /* ResponseModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7569342C8E06CF00325D4B /* ResponseModels.swift */; };
 		AA7569372C8E07C900325D4B /* MonthlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7569362C8E07C900325D4B /* MonthlyView.swift */; };
 		AA7569392C8E07D900325D4B /* YearlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7569382C8E07D900325D4B /* YearlyView.swift */; };
+		AA75693D2C8E159400325D4B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA75693C2C8E159400325D4B /* CoreDataManager.swift */; };
+		AA75693F2C8E15C700325D4B /* DataEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA75693E2C8E15C700325D4B /* DataEntry+CoreDataClass.swift */; };
+		AA7569412C8E15EB00325D4B /* DayEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7569402C8E15EB00325D4B /* DayEntry+CoreDataProperties.swift */; };
+		AA7569432C8E171100325D4B /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7569422C8E171100325D4B /* NotificationManager.swift */; };
+		AA7569452C8E172700325D4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7569442C8E172700325D4B /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +71,11 @@
 		AA7569342C8E06CF00325D4B /* ResponseModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModels.swift; sourceTree = "<group>"; };
 		AA7569362C8E07C900325D4B /* MonthlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyView.swift; sourceTree = "<group>"; };
 		AA7569382C8E07D900325D4B /* YearlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearlyView.swift; sourceTree = "<group>"; };
+		AA75693C2C8E159400325D4B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		AA75693E2C8E15C700325D4B /* DataEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AA7569402C8E15EB00325D4B /* DayEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayEntry+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AA7569422C8E171100325D4B /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		AA7569442C8E172700325D4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +106,11 @@
 		AA7568E12C8DFFA000325D4B = {
 			isa = PBXGroup;
 			children = (
+				AA7569302C8E068B00325D4B /* Secrets.swift */,
+				AA75692E2C8E067500325D4B /* NetworkManager.swift */,
+				AA75693C2C8E159400325D4B /* CoreDataManager.swift */,
+				AA75693E2C8E15C700325D4B /* DataEntry+CoreDataClass.swift */,
+				AA7569402C8E15EB00325D4B /* DayEntry+CoreDataProperties.swift */,
 				AA75691D2C8E00C900325D4B /* Model */,
 				AA75691A2C8E009300325D4B /* ViewModel */,
 				AA7569172C8E002400325D4B /* View */,
@@ -152,8 +167,6 @@
 			isa = PBXGroup;
 			children = (
 				AA75691B2C8E00B500325D4B /* ViewModel.swift */,
-				AA75692E2C8E067500325D4B /* NetworkManager.swift */,
-				AA7569302C8E068B00325D4B /* Secrets.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -164,6 +177,8 @@
 				AA75691E2C8E00D500325D4B /* DailyEntry.swift */,
 				AA7569322C8E06B100325D4B /* RequestModels.swift */,
 				AA7569342C8E06CF00325D4B /* ResponseModels.swift */,
+				AA7569422C8E171100325D4B /* NotificationManager.swift */,
+				AA7569442C8E172700325D4B /* AppDelegate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -300,18 +315,23 @@
 			files = (
 				AA75691F2C8E00D500325D4B /* DailyEntry.swift in Sources */,
 				AA7569312C8E068B00325D4B /* Secrets.swift in Sources */,
+				AA7569432C8E171100325D4B /* NotificationManager.swift in Sources */,
 				AA7569212C8E01DF00325D4B /* RatingView1.swift in Sources */,
 				AA7569232C8E023800325D4B /* RatingView2.swift in Sources */,
+				AA75693D2C8E159400325D4B /* CoreDataManager.swift in Sources */,
 				AA7569272C8E028E00325D4B /* SettingsView.swift in Sources */,
 				AA7569332C8E06B100325D4B /* RequestModels.swift in Sources */,
 				AA7569352C8E06CF00325D4B /* ResponseModels.swift in Sources */,
+				AA75693F2C8E15C700325D4B /* DataEntry+CoreDataClass.swift in Sources */,
 				AA75692F2C8E067500325D4B /* NetworkManager.swift in Sources */,
 				AA7568F02C8DFFA000325D4B /* ContentView.swift in Sources */,
 				AA7569372C8E07C900325D4B /* MonthlyView.swift in Sources */,
 				AA7569252C8E026400325D4B /* TutorialView.swift in Sources */,
 				AA7569192C8E003100325D4B /* HomeView.swift in Sources */,
 				AA7569392C8E07D900325D4B /* YearlyView.swift in Sources */,
+				AA7569412C8E15EB00325D4B /* DayEntry+CoreDataProperties.swift in Sources */,
 				AA75691C2C8E00B500325D4B /* ViewModel.swift in Sources */,
+				AA7569452C8E172700325D4B /* AppDelegate.swift in Sources */,
 				AA7568EE2C8DFFA000325D4B /* gratifyApp.swift in Sources */,
 				AA75692B2C8E030D00325D4B /* EntriesView.swift in Sources */,
 			);

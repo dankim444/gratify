@@ -7,6 +7,8 @@
 
 import Foundation
 
+import Foundation
+
 struct GPTChatPayload: Encodable {
     let model: String
     let messages: [GPTMessage]
@@ -31,6 +33,18 @@ struct GPTFunctionParam: Encodable {
 }
 
 struct GPTFunctionProperty: Encodable {
+    let type: String
+    let description: String
+    let items: GPTFunctionPropertyItem?
+    
+    init(type: String, description: String, items: GPTFunctionPropertyItem? = nil) {
+        self.type = type
+        self.description = description
+        self.items = items
+    }
+}
+
+struct GPTFunctionPropertyItem: Encodable {
     let type: String
     let description: String
 }

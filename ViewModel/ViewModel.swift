@@ -8,24 +8,29 @@
 import Foundation
 
 class ViewModel: ObservableObject {
-    @Published var dailyEntry = DailyEntry(score: 0, entry1: "", entry2: "", entry3: "", date: Date())
-    @Published var entries = [DailyEntry]() // Stores all entries
-
-    func appendEntry(dailyEntry: DailyEntry) {
-            entries.append(dailyEntry)
-            resetDailyEntry()
+    @Published var dailyEntry: DayEntry?
+    @Published var showRatingView2 = false
+    @Published var summaryResponse: SummaryResponse?
+    
+    func fetchSummary(message: String) {
+        Task {
+            do {
+                let summary = try await OpenAIService.shared.fetchGPTMessage(message: message)
+                DispatchQueue.main.async {
+                    self.summaryResponse = summary
+                }
+            } catch {
+                print("Error fetching summary: \(error)")
+            }
+        }
+    }
+    
+    func createNewDailyEntry() {
+        dailyEntry = DayEntry(context: CoreDataManager.shared.managedContext)
     }
 
     private func resetDailyEntry() {
-        // Reset dailyEntry to start with a blank slate each time after submission
-        dailyEntry = DailyEntry(score: 0, entry1: "", entry2: "", entry3: "", date: Date())
-    }
-    
-    // Function to print all monthly data
-    func printMonthlyData() {
-        for entry in entries {
-            print("------------")
-            print("Score: \(entry.score), Entry 1: \(entry.entry1), Entry 2: \(entry.entry2), Entry 3: \(entry.entry3)")
-        }
+        dailyEntry = nil
     }
 }
+

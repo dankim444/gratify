@@ -9,12 +9,13 @@ import SwiftUI
 
 @main
 struct gratifyApp: App {
-    @StateObject var viewModel = ViewModel()
-    
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    let persistenceController = CoreDataManager.shared
+
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .environmentObject(viewModel)
+                .environment(\.managedObjectContext, persistenceController.managedContext)
         }
     }
 }
