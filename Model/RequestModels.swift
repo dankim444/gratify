@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 struct GPTChatPayload: Encodable {
     let model: String
     let messages: [GPTMessage]

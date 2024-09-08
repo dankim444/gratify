@@ -11,84 +11,91 @@ import SwiftUI
 struct MonthlyView: View {
     @Binding var navigationPath: NavigationPath
     @ObservedObject var viewModel: ViewModel
-    @State private var summaryResponse: SummaryResponse?
     
-    var currentMonthEntries: [DailyEntry] {
-        let calendar = Calendar.current
-        let now = Date()
-        let currentMonth = calendar.component(.month, from: now)
-        let currentYear = calendar.component(.year, from: now)
-
-        return viewModel.entries.filter {
-            let entryMonth = calendar.component(.month, from: $0.date)
-            let entryYear = calendar.component(.year, from: $0.date)
-            return entryMonth == currentMonth && entryYear == currentYear
-        }
-    }
-    
-    // function that converts a single DailyEntry into a string
-    func formatEntry(_ entry: DailyEntry) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .long
-        let dateString = dateFormatter.string(from: entry.date)
-        return "Date: \(dateString), Score: \(entry.score), Entry 1: \(entry.entry1), Entry 2: \(entry.entry2), Entry 3: \(entry.entry3)"
-    }
-    
-    // function that combines all entries into a single string
-    func entriesToString(entries: [DailyEntry]) -> String {
-        return entries.map { formatEntry($0) }.joined(separator: "\n\n")
-    }
-    
-    func prepareAndFetchGPTMessage() async throws {
-        do {
-            let entriesString = entriesToString(entries: currentMonthEntries)
-            let response = try await OpenAIService.shared.fetchGPTMessage(message: entriesString)
-            DispatchQueue.main.async {
-                self.summaryResponse = response
-            }
-        } catch {
-            print("Error fetching message: \(error)")
-            DispatchQueue.main.async {
-                self.summaryResponse = nil // Clear previous data or indicate error
-            }
-        }
-    }
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \DayEntry.date, ascending: false)],
+        animation: .default
+    )
+    private var entries: FetchedResults<DayEntry>
     
     var body: some View {
         VStack {
+            Text("your monthly")
+                .font(Font.custom("Futura-MediumItalic", size: 35))
+                .foregroundColor(Color.black)
             
-            Button("Go to Yearly View") {
+            ScrollView {
+                if let summary = viewModel.summaryResponse {
+                    Spacer()
+                    GradientCircleButton1(navigationPath: $navigationPath, destination: "summary", inputValue: summary.overallRating, emojiValue: summary.overallMood)
+                    Text("Overall Mood: \(summary.overallMood)")
+                    Text("Overall Rating: \(summary.overallRating)")
+                    Text("Top 5 Mindful Things:")
+                    ForEach(summary.top5MindfulStuff, id: \.self) { thing in
+                        Text("- \(thing)")
+                    }
+                    Text("Recap:")
+                    Text(summary.recap)
+                        .padding()
+                } else {
+                    Text("Loading summary...")
+                        .padding()
+                }
+            }
+            
+            Spacer()
+            Button(action: {
                 navigationPath.append("yearly")
+            }) {
+                Text("your yearly")
+                .fontWeight(.semibold)
+                .frame(width: 200)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 20)
+                .background(.white)
+                .cornerRadius(15)
+                .shadow(radius: 10)
+                .foregroundColor(.black)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.white, lineWidth: 2)
+                )
             }
             
-            if let summary = summaryResponse {
-                Text("Overall Mood: \(summary.overallMood)")
-                Text("Overall Rating: \(summary.overallRating)")
-                Text("Top 5 Mindful Things: \(summary.top5MindfulStuff)")
-                Text("Random Home Page Number: \(summary.homePageNumber)")
-                    .padding()
-            } else {
-                Text("No summary available yet")
-                    .padding()
-            }
-            
-            // Settings content here
             Button(action: {
                 navigationPath = NavigationPath()
             }) {
-                Image(systemName: "homekit")
-                    .padding()
-                    .background(.purple)
-                    .cornerRadius(5)
-                    .foregroundStyle(.white)
+                Text("Home")
+                .fontWeight(.semibold)
+                .frame(width: 200)
+                .padding(.vertical, 10)
+                .padding(.horizontal, 20)
+                .background(.white)
+                .cornerRadius(15)
+                .shadow(radius: 10)
+                .foregroundColor(.black)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.white, lineWidth: 2)
+                )
             }
             
         }
+        .navigationBarBackButtonHidden(true)
         .onAppear {
-            Task {
-                try await prepareAndFetchGPTMessage()
-            }
+            fetchSummary()
         }
-        .navigationBarTitle("Monthly Summary")
+    }
+    
+    private func fetchSummary() {
+        let pastMonth = Date().addingTimeInterval(-30 * 24 * 60 * 60) // 30 days ago
+        let recentEntries = entries.filter { $0.date ?? Date() >= pastMonth }
+        let limitedEntries = Array(recentEntries.prefix(30))
+        
+        let message = limitedEntries.map { entry in
+            "\(entry.summary1 ?? ""), \(entry.summary2 ?? ""), \(entry.summary3 ?? "")"
+        }.joined(separator: "\n\n")
+        
+        viewModel.fetchSummary(message: message)
     }
 }
